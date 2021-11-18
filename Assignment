@@ -1,0 +1,46 @@
+import random
+
+
+#opens the program and gets the names
+def startup():
+    print("Welcome to the love calculator, we will calculate the chance you and your crush are compatible.")
+    print("What is your name? (lowercase only)")
+    first = input('> ')
+    print("excellent, what is your crush's name? (lowercase only)")
+    second = input('> ')
+    love_calculation(first, second)
+    
+    
+#this gives either a random compatibility chance or a preset one
+def love_calculation(person1, person2):
+    i = 0
+    matchmade = False
+    for people in match_list1:
+        if person1 == match_list1[i]:
+            if person2 == match_list2[i]:
+                love_value = match_listvalues[i]
+                print(f"You and your crush have a {love_value}% chance of being compatible!")
+                matchmade = True
+        elif person1 == match_list2[i]:
+            if person2 == match_list1[i]:
+                love_value = match_listvalues[i]
+                print(f"You and your crush have a {love_value}% chance of being compatible!")
+        i = i + 1
+    if matchmade == False:
+        love_value = random.randint(1,100)
+        print(f"You and your crush have a {love_value}% chance of being compatible!")
+
+        
+        
+#these variables are for if you have a certain couple you want to have a specific score
+match_list1 = ("bob", "joe")
+match_list2 = ("sara", "payton")
+match_listvalues = [54, -100]
+
+
+
+
+
+
+
+startup()
